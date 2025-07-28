@@ -51,9 +51,15 @@ function ProjectCard({ project }) {
             }
             <span className="text-gray-400">{"],"}</span>
           </div>
+
           <div>
             <span className="ml-4 lg:ml-8 mr-2 text-white">myRole:</span>
             <span className="text-orange-400">{project.role}</span>
+            <span className="text-gray-400">,</span>
+          </div>
+            <div>
+            <span className="ml-4 lg:ml-8 mr-2 text-white">Demo:</span>
+            <span className="text-orange-400">{project.demo}</span>
             <span className="text-gray-400">,</span>
           </div>
           <div className="ml-4 lg:ml-8 mr-2">
@@ -61,6 +67,7 @@ function ProjectCard({ project }) {
             <span className="text-cyan-400">{' ' + project.description}</span>
             <span className="text-gray-400">,</span>
           </div>
+         
           <div><span className="text-gray-400">{`};`}</span></div>
         </code>
       </div>
