@@ -2,11 +2,11 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// ✅ Debug environment variables
-console.log("📧 EMAIL_ADDRESS:", process.env.EMAIL_ADDRESS || "❌ MISSING");
-console.log("🔑 GMAIL_PASSKEY:", process.env.GMAIL_PASSKEY ? "Loaded ✅" : "❌ MISSING");
-console.log("🤖 TELEGRAM_BOT_TOKEN:", process.env.TELEGRAM_BOT_TOKEN ? "Loaded ✅" : "❌ MISSING");
-console.log("💬 TELEGRAM_CHAT_ID:", process.env.TELEGRAM_CHAT_ID || "❌ MISSING");
+// 🔑 Original credentials (hardcoded)
+const EMAIL_ADDRESS = "ambica930@gmail.com";
+const GMAIL_PASSKEY = "rabepiumhhruufgr";
+const TELEGRAM_BOT_TOKEN = "8270492719:AAFzgMMqeKr99lOEZXN1xhghlAZzg8L6E9c";
+const TELEGRAM_CHAT_ID = "890329558";
 
 // ✅ Create and configure transporter
 const transporter = nodemailer.createTransport({
@@ -14,8 +14,8 @@ const transporter = nodemailer.createTransport({
   port: 465, // SSL port
   secure: true,
   auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY,
+    user: EMAIL_ADDRESS,
+    pass: GMAIL_PASSKEY,
   },
 });
 
@@ -49,8 +49,8 @@ const generateEmailTemplate = (name, email, userMessage) => `
 async function sendEmail(payload) {
   const { name, email, message } = payload;
   const mailOptions = {
-    from: `"Portfolio" <${process.env.EMAIL_ADDRESS}>`,
-    to: process.env.EMAIL_ADDRESS,
+    from: `"Portfolio" <${EMAIL_ADDRESS}>`,
+    to: EMAIL_ADDRESS,
     subject: `New Message from ${name}`,
     html: generateEmailTemplate(name, email, message),
     replyTo: email,
@@ -72,21 +72,17 @@ export async function POST(request) {
     const payload = await request.json();
     const { name, email, message } = payload;
 
-    // Check ENV
-    if (!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID) {
+    // Check hardcoded config
+    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
       return NextResponse.json({ success: false, message: "Telegram config missing" }, { status: 400 });
     }
 
-    if (!process.env.EMAIL_ADDRESS || !process.env.GMAIL_PASSKEY) {
+    if (!EMAIL_ADDRESS || !GMAIL_PASSKEY) {
       return NextResponse.json({ success: false, message: "Email config missing" }, { status: 400 });
     }
 
     const telegramMsg = `New message from ${name}\nEmail: ${email}\nMessage:\n${message}`;
-    const telegramSuccess = await sendTelegramMessage(
-      process.env.TELEGRAM_BOT_TOKEN,
-      process.env.TELEGRAM_CHAT_ID,
-      telegramMsg
-    );
+    const telegramSuccess = await sendTelegramMessage(TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, telegramMsg);
 
     const emailSuccess = await sendEmail(payload);
 
