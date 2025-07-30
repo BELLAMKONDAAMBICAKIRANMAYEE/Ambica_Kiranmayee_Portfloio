@@ -16,7 +16,7 @@ function BlogCard() {
       comments_count: 3,
       url: "https://doctorsolympiad.com",
       reading_time_minutes: 5,
-      description: "Developed a dedicated platform enabling doctors to receive professional sports training. Focused on preparing them for major sports events, including the Olympics."
+      description: "Developed a dedicated platform enabling doctors to receive major sports events, including the Olympics."
     },
     {
       
@@ -27,7 +27,7 @@ function BlogCard() {
       comments_count: 6,
       url: "https://saimanikantaconstructions.com",
       reading_time_minutes: 8,
-      description: "Built business websites tailored for local enterprises with a focus on performance, clarity, and mobile compatibility.Designed clean and responsive websites to showcase services and projects clearly."
+      description: "Built business websites for local enterprises with a focus on performance, clarity and to showcase services and projects clearly."
     },
     {
       title: "Hospital Management System",
@@ -37,7 +37,7 @@ function BlogCard() {
       comments_count: 8,
       url: "https://frontend-doctor-gamma.vercel.app/",
       reading_time_minutes: 7,
-      description: "Developed a Hospital Management System to streamline patient records, appointments, billing, and staff management, improving overall operational efficiency."
+      description: "Developed a Hospital Management System to streamline patient records, appointments, and staff management, improving operational efficiency."
     
     },
     {
@@ -49,7 +49,7 @@ function BlogCard() {
       comments_count: 10,
       url: "https://foodpanda-eight.vercel.app/",
       reading_time_minutes: 9,
-      description: "Developed a food delivery platform inspired by Foodpanda, featuring restaurant listings, online ordering, real-time tracking, and a user-friendly interface."
+      description: "Developed a food delivery platform inspired by Foodpanda, featuring restaurant listings, online ordering,and a user-friendly interface."
     },
     {
         title: "Quizz App",
@@ -59,7 +59,7 @@ function BlogCard() {
       comments_count: 5,
       url: "https://github.com/BELLAMKONDAAMBICAKIRANMAYEE/MERN-Quizz.git",
       reading_time_minutes: 6,
-      description: "Built a Quiz App using the MERN stack with features like dynamic question rendering, real-time scoring, and user authentication for an engaging learning experience."
+      description: "Built a Quiz App using the MERN stack with features like dynamic question rendering,real-time scoring,user authentication for an engaging learning."
     },
     {
       title: "BlackBean Constructions",
@@ -69,7 +69,7 @@ function BlogCard() {
       comments_count: 10,
       url: "https://blackbeanhealth.vercel.app/crm-service.html",
       reading_time_minutes: 9,
-      description: "Website for an innovative company that specializes in healthcare construction . Spearheaded the development of an informative website for Blackbean Construction."
+      description: "Website for an innovative company that specializes in healthcare construction.Development of an informative for Blackbean Construction."
     },
      {
       title: "iAdopt Replica",
@@ -89,7 +89,7 @@ function BlogCard() {
       comments_count: 4,
       url: "https://ecommerce-flame-alpha.vercel.app",
       reading_time_minutes: 5,
-      description: "Built an e-commerce website for Beats 3 earphones with product listings, cart functionality, and a responsive design for a smooth shopping experience."
+      description: "Built an e-commerce website for Beats 3 earphones with product listings, and a responsive design for a smooth shopping experience."
     },
      {
       title: "CrunchyRoll Replica",
@@ -136,12 +136,13 @@ function BlogCard() {
                 {blog.title}
               </p>
             </Link>
-            <p className="mb-2 text-sm text-[#16f2b3]">
-              {/* {blog.reading_time_minutes} Min Read */}
-            </p>
-            <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3">
+            {/* <p className="mb-5 text-sm text-[#16f2b3]">
+               {blog.reading_time_minutes} Min Read 
+            </p> */}
+            <p className="text-sm lg:text-base text-[#d3d8e8] pb-5 lg:pb-6 line-clamp-3">
               {blog.description}
             </p>
+            
           </div>
         </div>
       ))}
